@@ -29,6 +29,8 @@ bash
 ```
 npm install
 ```
+>It might get some **Security Warnings** at first ignor them all. 
+
 after install is complete try to run the developement server !
 
 bash
