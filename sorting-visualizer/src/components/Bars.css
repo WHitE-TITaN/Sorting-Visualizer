@@ -1,0 +1,5 @@
+.BarsOfGraph{
+    height: var(--BarsOfGraph-hight);
+    width: 20px;
+    background-color: greenyellow;
+}
