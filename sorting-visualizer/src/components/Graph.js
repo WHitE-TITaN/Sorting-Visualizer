@@ -7,7 +7,6 @@ class Graph extends Component{
         return(
             <div className = 'GraphBox'>
                 <Bars></Bars>
-                <br></br>
             </div>
         );
     }
