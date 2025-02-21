@@ -1,4 +1,5 @@
 import './App.css';
+import Graph from './components/Graph';
 
 function App() {
 
@@ -9,8 +10,9 @@ function App() {
       <div className='input'>
         <input id = 'array' placeholder='Pls enter array !'></input>
         <button id = 'submmit'>GENERATE</button>
+       
       </div>
-
+      <Graph />
     </div>
   );
 }
