@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-
-
-
+import BubbleSort from './BubbleSort';
 
 class Graph extends Component {
 
@@ -20,6 +18,11 @@ class Graph extends Component {
         
     }
 
+
+    updateGraph = (updatedState) =>{
+        this.setState({bar: updatedState});
+    }
+    
     resetGraph(){
         const defaultState = [100, 100, 100, 100, 100, 100, 100];
         this.setState({bar: defaultState});
@@ -30,7 +33,10 @@ class Graph extends Component {
             <div className='mainInput'>
                 <input id='userInput' placeholder='enter array'></input>
                 <button onClick={() => this.readInput()}>submmit</button>
+                <hr/>
                 <button onClick={() => this.resetGraph()}>Reset</button>
+                <button onClick={() => BubbleSort([...this.state.bar], this.updateGraph.bind(this))}>Sort</button>
+
 
                 <div className='MainGraph'>
                     {
