@@ -1,12 +1,11 @@
 import React from 'react'
 
 
-function readInput(){
+function readInput(bar){
     let arrayString = document.getElementById('userInput').value;
-    let newArray = arrayString.split(',').map(num => Number(num.trim()));
+    bar = arrayString.split(',').map(num => Number(num.trim()));
     
-    console.log(newArray);
-    newArray.forEach(element => console.log(element));
+    console.log(bar);
 }
 
 function Graph() {
@@ -15,7 +14,7 @@ function Graph() {
     return (
         <div className='mainInput'>
             <input id='userInput' placeholder='enter array'></input>
-            <button onClick={() => readInput()}>submmit</button>
+            <button onClick={() => readInput(bar)}>submmit</button>
 
             <div className='MainGraph'>
                 {
@@ -27,7 +26,7 @@ function Graph() {
                             width: `40px`,
                             
                             borderRadius: `5px`,
-                            backgroundColor: `greenyellow`
+                            backgroundColor: 'greenyellow'
                         }}>
 
                     </div>))
