@@ -16,8 +16,8 @@ class Graph extends Component {
         let arrayString = document.getElementById('userInput').value;
         let newBar = arrayString.split(',').map(num => Number(num.trim()));
 
-        this.setState({ bar: newBar });
-        console.log(newBar);
+        this.setState({ bar: newBar }, () => {console.log(newBar)});
+        
     }
 
     resetGraph(){
