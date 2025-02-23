@@ -19,6 +19,7 @@ class Graph extends Component {
         if(algo === "BubbleSort"){
             this.setState({algorithm : BubbleSort},
                 () => {BubbleSort([...this.state.bar], this.updateGraph.bind(this))})
+                
         }
 
         if(algo === "QuickSort"){
