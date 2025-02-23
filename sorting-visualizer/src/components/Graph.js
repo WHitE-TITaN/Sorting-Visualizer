@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import BubbleSort from './BubbleSort';
+import QuickSort from './QuickSort';
 
 class Graph extends Component {
 
@@ -22,6 +23,10 @@ class Graph extends Component {
 
         if(algo === "QuickSort"){
             console.log("QuickSort");
+            this.setState({
+                algorithm: QuickSort}, //after settinf the algo then only execute next arrow function
+                () => {QuickSort([...this.state.bar], this.updateGraph.bind(this))}
+            )
         }
 
         if(algo === "MergeSort"){
@@ -35,7 +40,7 @@ class Graph extends Component {
 
     readInput() {
         let arrayString = document.getElementById('userInput').value;
-        let newBar = arrayString.split(',').map(num => Number(num.trim()));
+        let newBar = arrayString.split(',').map(num => Number(num.trim()) % 501);
 
         this.setState({ bar: newBar }, () => {console.log(newBar)});
         
@@ -61,13 +66,16 @@ class Graph extends Component {
     render() {
         return (
             <div className='mainInput'>
-                <input id='userInput' placeholder='enter array'></input>
-                <br />
                 <div>
-                    <label htmlFor ="algorithm" className='SelectAlgortim'>
+                    <label className ="userInput" style={{paddingRight: `20px`, fontSize: `30px`}}>ARRAY</label>
+                    <input id='userInput' className = "userInput" placeholder='enter array' style={{textAlign : "center"}}></input>
+                </div>
+               
+                <div style={{paddingTop: `5px`}}>
+                    <label htmlFor ="algorithm" className='SelectAlgortim' style={{paddingRight: `20px`, fontSize: `30px`}}>
                         ALGORITHM
                     </label>
-                    <select id = "algorithm">
+                    <select id = "algorithm" className='SelectAlgortim' style={{textAlign: `center`}}>
                         <option value="BubbleSort">BubbleSort</option>
                         <option value="QuickSort">QuickSort</option>
                         <option value="MergeSort">MergeSort</option>
@@ -76,11 +84,11 @@ class Graph extends Component {
                 </div>
                 <br />
                 <div>
-                    <button onClick={() => this.readInput()}>submmit</button>
+                    <button className = "Button" onClick={() => this.readInput()} >submmit</button>
                  
-                    <button onClick={() => this.resetGraph()}>Reset</button>
+                    <button className = "Button" onClick={() => this.resetGraph()}>Reset</button>
 
-                    <button onClick={() => this.algorithmSelection()
+                    <button className = "Button" onClick={() => this.algorithmSelection()
                         /**/}>Sort</button>
                 </div>
                 

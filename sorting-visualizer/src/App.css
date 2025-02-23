@@ -2,7 +2,6 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding-top: 30px;
   text-align: center;
   align-content: center;
 }
@@ -34,4 +33,39 @@
   border-radius: 10px;
   text-align: center;
   margin-top: 20px;
+}
+
+.userInput{
+  font-family: pixalFont;
+  height: 50px;
+  width: 200px;
+  border-radius: 10px;
+}
+
+.SelectAlgortim{
+  font-family: pixalFont;
+  height: 50px;
+  width: 200px;
+  border-radius: 10px;
+}
+
+.Button{
+  border-radius: 10px;
+  height: 50px;
+  width: 150px;
+  text-align: center;
+  font-family: pixalFont;
+  border-color: aliceblue;
+  box-shadow: none;
+  font-size: 20px;
+  background-color: cornflowerblue;
+  color: aliceblue;
+}
+
+@font-face {
+  font-family: pixalFont;
+  src: url(./fonts/pixy/PIXY.ttf) format('truetype'),
+      url(fonts/pixy/PIXY.otf) format('opentype');
+  font-weight: normal;
+  font-style: normal;
 }
