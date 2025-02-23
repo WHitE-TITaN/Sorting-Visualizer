@@ -5,6 +5,9 @@ function App() {
 
   return (
     <div className="App">
+      <h1>
+        SORTING VISUALIZER
+      </h1>
       <Graph />
     </div>
   );

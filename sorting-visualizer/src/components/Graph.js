@@ -8,10 +8,30 @@ class Graph extends Component {
         this.state = {
             bar: [90, 10, 50, 70, 80, 77, 30, 45],
             currentSortingBars : [],
-            isSorted: false
+            algorithm: "BubbleSort"
         };
     }
 
+    algorithmSelection(){
+        const algo = document.getElementById('algorithm').value;
+
+        if(algo === "BubbleSort"){
+            this.setState({algorithm : BubbleSort},
+                () => {BubbleSort([...this.state.bar], this.updateGraph.bind(this))})
+        }
+
+        if(algo === "QuickSort"){
+            console.log("QuickSort");
+        }
+
+        if(algo === "MergeSort"){
+            console.log("MergeSort");
+        }
+
+        if(algo === "HeapSort"){
+            console.log("HeapSort");
+        }
+    }
 
     readInput() {
         let arrayString = document.getElementById('userInput').value;
@@ -42,10 +62,28 @@ class Graph extends Component {
         return (
             <div className='mainInput'>
                 <input id='userInput' placeholder='enter array'></input>
-                <button onClick={() => this.readInput()}>submmit</button>
-                <hr/>
-                <button onClick={() => this.resetGraph()}>Reset</button>
-                <button onClick={() => BubbleSort([...this.state.bar], this.updateGraph.bind(this))}>Sort</button>
+                <br />
+                <div>
+                    <label htmlFor ="algorithm" className='SelectAlgortim'>
+                        ALGORITHM
+                    </label>
+                    <select id = "algorithm">
+                        <option value="BubbleSort">BubbleSort</option>
+                        <option value="QuickSort">QuickSort</option>
+                        <option value="MergeSort">MergeSort</option>
+                        <option value="HeapSort">HeapSort</option>
+                    </select>
+                </div>
+                <br />
+                <div>
+                    <button onClick={() => this.readInput()}>submmit</button>
+                 
+                    <button onClick={() => this.resetGraph()}>Reset</button>
+
+                    <button onClick={() => this.algorithmSelection()
+                        /**/}>Sort</button>
+                </div>
+                
 
 
                 <div className='MainGraph'>

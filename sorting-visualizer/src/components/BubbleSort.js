@@ -34,7 +34,7 @@ export default function BubbleSort(bar, updatestate) {
                 i++;
                 j = 1;
             }
-            setTimeout(set, 300);
+            setTimeout(set, 100);
         }
     }
     set()
