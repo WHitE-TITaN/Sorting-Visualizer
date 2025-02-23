@@ -19,12 +19,14 @@ export default function BubbleSort(bar, updatestate) {
         if(i < newSortState.length){
             if(j < newSortState.length){
 
+                updatestate([...newSortState], [j - 1, j]);
+
                 if(newSortState[j - 1] > newSortState[j]){
                     let temp = newSortState[j];
                     newSortState[j] = newSortState[j - 1];
                     newSortState[j - 1] = temp;
 
-                    updatestate([...newSortState]);
+                    updatestate([...newSortState], [j - 1, j]);
                 }
                 j++;
                 
@@ -32,7 +34,7 @@ export default function BubbleSort(bar, updatestate) {
                 i++;
                 j = 1;
             }
-            setTimeout(set, 100);
+            setTimeout(set, 300);
         }
     }
     set()

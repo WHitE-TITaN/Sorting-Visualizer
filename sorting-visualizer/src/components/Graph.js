@@ -6,9 +6,12 @@ class Graph extends Component {
     constructor(prop) {
         super(prop)
         this.state = {
-            bar: [90, 10, 50, 70, 80, 77, 30, 45]
+            bar: [90, 10, 50, 70, 80, 77, 30, 45],
+            currentSortingBars : [],
+            isSorted: false
         };
     }
+
 
     readInput() {
         let arrayString = document.getElementById('userInput').value;
@@ -19,13 +22,20 @@ class Graph extends Component {
     }
 
 
-    updateGraph = (updatedState) =>{
-        this.setState({bar: updatedState});
+    updateGraph = (updatedState, selectedBars) =>{
+        this.setState({
+            bar: updatedState,
+
+            currentSortingBars : selectedBars
+        });
+
     }
     
     resetGraph(){
         const defaultState = [100, 100, 100, 100, 100, 100, 100];
-        this.setState({bar: defaultState});
+        this.setState({bar: defaultState,
+            currentSortingBars: []
+        });
     }
 
     render() {
@@ -40,18 +50,26 @@ class Graph extends Component {
 
                 <div className='MainGraph'>
                     {
-                        this.state.bar.map((Hight, index) => (<div
+                        this.state.bar.map((Hight, index) => {
+                            const selectionHiglight = this.state.currentSortingBars.includes(index);
 
-                            key={index}
-                            style={{
-                                height: `${Hight}px`,
-                                width: `40px`,
+                            return(
+                                <div
+                                    key={index}
+                                    style={{
 
-                                borderRadius: `5px`,
-                                backgroundColor: 'greenyellow'
-                            }}>
+                                        height: `${Hight}px`,
+                                        width: `40px`,
 
-                        </div>))
+                                        borderRadius: `5px`,
+                                        backgroundColor: selectionHiglight ? 'red' : 'greenyellow',
+                                        transition: 'background-color 0.3s ease'
+                                    }}>
+
+                                </div>
+                            );
+                        }
+                    )
                     }
                 </div>
             </div>
