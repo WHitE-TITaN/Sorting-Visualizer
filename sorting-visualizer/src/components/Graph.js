@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import BubbleSort from './BubbleSort';
 import QuickSort from './QuickSort';
+import MergeSort from './MergeSort';
 
 class Graph extends Component {
 
@@ -32,6 +33,10 @@ class Graph extends Component {
 
         if(algo === "MergeSort"){
             console.log("MergeSort");
+            this.setState({
+                algorithm : MergeSort},
+                () => {MergeSort([...this.state.bar], this.updateGraph.bind(this))}
+            )
         }
 
         if(algo === "HeapSort"){
@@ -90,7 +95,7 @@ class Graph extends Component {
                     <button className = "Button" onClick={() => this.resetGraph()}>Reset</button>
 
                     <button className = "Button" onClick={() => this.algorithmSelection()
-                        /**/}>Sort</button>
+                        }>Sort</button>
                 </div>
                 
 
