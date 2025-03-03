@@ -73,7 +73,7 @@ function mergeBack(sortArray, low, mid, high, updatedlist, callback) {
         if (index < temporary.length) {
             sortArray[low + index] = temporary[index];
             updatedlist([...sortArray], [low + index]);
-            setTimeout(() => updating(index + 1), 100);
+            setTimeout(() => updating(index + 1), 250);
         } else {
             callback(); // Continue sorting after updates
         }

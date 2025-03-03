@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import BubbleSort from './BubbleSort';
 import QuickSort from './QuickSort';
 import MergeSort from './MergeSort';
+import HeapSort from './HeapSort';
 
 class Graph extends Component {
 
@@ -41,6 +42,10 @@ class Graph extends Component {
 
         if(algo === "HeapSort"){
             console.log("HeapSort");
+            this.setState(
+                {algorithm : HeapSort},
+                () => {HeapSort([...this.state.bar], this.updateGraph.bind(this))}
+            )
         }
     }
 
